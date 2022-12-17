@@ -1,31 +1,33 @@
-# Converting from LaTeX to DOCX: Pandoc and working around its limitations
+# Converting from LaTeX to DOCX: Scientific Paper Example
 
-[LaTeX](https://www.latex-project.org/) is the best tool for writing scientific papers.
+This public GITHub repository, is a fork and subsequent modification from [wmvanvliet/pandoc-tutorial](https://github.com/wmvanvliet/pandoc-tutorial).
+In this excellent pandoc tutorial for converting from LaTeX to DOCX, the author provides a very useful LaTeX example paper entitled 'Post-hoc modification of linear models: combining machine learning with domain information to make solid inferences from noisy data.'  In this forked and modified GITHub repository, we will be going through the same workflow with a scientific manuscript that was completed (in December 2022) in LaTeX using [OverLeaf](https://www.overleaf.com/) to allow all co-authors to collaboratively edit the manuscript online (similar to MS-Word 365 or Google Docs), and is submitted for publication to the International Union of Crystallography (IUCr).  The IUCr provides a LaTeX template and this has been used to create the manuscript.  This example also has extensive supplemental information and is representative of material commonly submitted for modern online scientific scientific journals.
+
+[LaTeX](https://www.latex-project.org/) is arguably the best tool for writing mathematical and highly technical scientific papers.
 However, Microsoft Word in `.docx` format (A DOCX file is a ZIP archive of XML files) is the most widely used and accepted tool for sharing, collaborating and format accepted for submitting scientific reports or papers.
-Hence, it would be nice to have an accurate convenient convertor between LaTeX `.tex` files and Word `.docx` files (also the much lesser known `.docx` alternative `.odt` - [ODF](https://en.wikipedia.org/wiki/OpenDocument)).
+Hence, it would be nice to have an accurate convenient converter between LaTeX `.tex` files and Word `.docx` files (also the lesser known `.docx` alternative `.odt` - [ODF](https://en.wikipedia.org/wiki/OpenDocument)).
 
 [Pandoc](https://pandoc.org/) is a tool for converting text between different markup languages (in this case tex and xml).
-Impressive as its capabilities are, there are some markup languages, such as LaTeX, that are essentially programming languages, and Pandoc cannot hope to cover all its commands, extensions, and so on.
-Pandoc will get you 90% of the way.  In this GITHub repository, we attempt to cover additional steps to help with the other 10%.
-This GITHub repository, is a fork and modification from Marijn van Vliet, wmvanvliet (https://github.com/wmvanvliet/pandoc-tutorial).
+Impressive as its capabilities are, there are some markup languages, such as LaTeX, that are essentially programming languages, and Pandoc cannot hope to cover all its templates, styles, commands, extensions, and so on.
+Pandoc will often get you about 90% of the way.  In this GITHub repository, we will use the additional steps covered by [wmvanvliet/pandoc-tutorial](https://github.com/wmvanvliet/pandoc-tutorial) to help with the other 10% on a LaTeX project, which includes the scientific draft manuscript, BiBTeX referencing, lots of complex tables, scientific figures and supplemental information (which is commonly associated with most modern online scientific manuscripts).
 
 
-## Example paper and code
+## Example Scientific Paper
 
-To illustrate the process of converting a complex LaTeX document to Word (xml), I will convert a paper that I want to submit to IUCr and only accepts Word formatted files (along with the required CIF file, which is unique to Crystallography).  I will use the IUCr latex template (which is annoying that they have a IUCr LaTeX template and don't accept direct submitting of LaTeX documents). 
+To illustrate the process of converting a complex LaTeX document to Word (DOCX), we will convert a draft paper and supplementary material being submitted to the IUCr ([Acta Crystallographica Section C: STRUCTURAL CHEMISTRY](https://journals.iucr.org/c/)) along with the required CIF file, which is unique to crystallography.  The [IUCr LaTeX package](https://journals.iucr.org/a/services/latexstyle.html) has been used for formatting the primary manuscript.
 
 You can download the LaTeX source for the paper, and the code we will write to convert it to DOCX, in this repository: 
 https://github.com/jyarger/pandoc-journal-latex-to-docx
 
 
-## Plain Pandoc
+## Basic Pandoc
 
 At its core, the command to convert a `.tex` file to a `.docx` file is (replace  `filename` with the name of the LaTeX document filename you want to convert to Word):
 ```bash
 pandoc filename.tex -o filename.docx
 ```
 
-In complex LaTeX documents, executing the base pandoc conversion will output a bunch of errors, as Pandoc is choking on the custom commands and other complexities in the file, but it typically plows on and indeed produces a `filename.docx` file.  However, the DOCX file will commonly have many shortcomings which need to be addressed to reproduce the LaTeX document.  Using the example LaTeX scientific paper and supplemental information I am planning to submit for publication to IUCr, I will address one-by-one each issue below.  The goal of this public GITHub repository is that is helps others with this type of LaTeX to docx conversion (like wmvanvliet/pandoc-tutorial helped me and was forked in Dec. 2022 as the basis for this publicly forked GITHub repository).
+In complex LaTeX documents, executing the base pandoc conversion will output a bunch of errors, as Pandoc has problems with custom commands and other complexities in the file, but it typically continues on and produces a `filename.docx` file.  However, the DOCX file will commonly have many shortcomings which need to be addressed to reproduce the LaTeX document.  We will first use the [Sample Paper Using the IUCr LaTeX Macro Package](https://journals.iucr.org/iucr-top/journals/latex/documentation.pdf) document as a working example to address one-by-one each issue encountered by Pandoc.  The goal of this public GITHub repository is that is helps others with this type of LaTeX to docx conversion (and provide alternate examples to [wmvanvliet/pandoc-tutorial](https://github.com/wmvanvliet/pandoc-tutorial).
 
 
 ## References
