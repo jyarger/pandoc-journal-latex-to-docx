@@ -1,33 +1,32 @@
-# Converting from LaTeX to DOCX (and everything else): Pandoc and working around its limitations
+# Converting from LaTeX to DOCX: Pandoc and working around its limitations
 
 LaTeX is the best tool for writing scientific papers.
-Microsoft Word is the best tool for commenting on manuscripts.
-Hence, ideally, you would write your paper in LaTeX, and send a `.docx` version to your co-authors for comments.
+Microsoft Word or Google Docs or some XML word processor is the most widely used and accepted tool for collaborating and submitting scientific papers.
+Hence, ideally, you would write your paper in LaTeX, and send a `.docx` version to your co-authors, collaborators or editors.
 
 
-[Pandoc](https://pandoc.org/) is a tool for converting text between different markup languages.
+[Pandoc](https://pandoc.org/) is a tool for converting text between different markup languages (in this case tex and xml).
 Impressive as its capabilities are, there are some markup languages, such as LaTeX, that are essentially programming languages, and Pandoc cannot hope to cover all its commands, extensions, and so on.
-In my experience, plain Pandoc will get you 90% of the way.
-In this document, I'll describe how to get the final 10%.
+Pandoc will get you 90% of the way.  In this GITHub repository, we attempt to cover additional steps to help with the other 10%.
+This GITHub repository, is a fork and modification from Marijn van Vliet, wmvanvliet (https://github.com/wmvanvliet/pandoc-tutorial).
 
 
 ## Example paper and code
 
-To illustrate the process of converting a complex LaTeX document to Word for comfortable commenting by co-authors, we convert one of my papers that uses a [custom template](https://github.com/wmvanvliet/latex_templates) and employs many custom commands: [Post-hoc modification of linear models: combining machine learning with domain information to make solid inferences from noisy data](https://users.aalto.fi/~vanvlm1/papers/van_vliet_2020a.pdf).
-So, this will be a challenge to convert perfectly.
+To illustrate the process of converting a complex LaTeX document to Word (xml), I will convert a paper that I want to submit to IUCr and only accepts Word formatted files (along with the required CIF file, which is unique to Crystallography).  I will use the IUCr latex template (which is annoying that they have a IUCr LaTeX template and don't accept direct submitting of LaTeX documents). 
 
-You can download the LaTeX source for the paper, and the code we will write to convert it to DOCX, in this repository: https://github.com/wmvanvliet/pandoc-tutorial.
+You can download the LaTeX source for the paper, and the code we will write to convert it to DOCX, in this repository: 
+https://github.com/jyarger/pandoc-journal-latex-to-docx
 
 
 ## Plain Pandoc
 
-At its core, the command to convert a `.tex` file to a `.docx` file is:
+At its core, the command to convert a `.tex` file to a `.docx` file is (replace  `filename` with the name of the LaTeX document filename you want to convert to Word):
 ```bash
-pandoc paper/beamformer_framework.tex -o beamformer_framework.docx
+pandoc filename.tex -o filename.docx
 ```
 
-Executing that will output a bunch of errors, as Pandoc is choking on the custom commands and other shenanigans in the file, but it plows on and indeed produces a `beamformer_framework.docx` file.
-However, the DOCX file still has many shortcomings which we will address one-by-one below.
+In complex LaTeX documents, executing the base pandoc conversion will output a bunch of errors, as Pandoc is choking on the custom commands and other complexities in the file, but it typically plows on and indeed produces a `filename.docx` file.  However, the DOCX file will commonly have many shortcomings which need to be addressed to reproduce the LaTeX document.  Using the example LaTeX scientific paper and supplemental information I am planning to submit for publication to IUCr, I will address one-by-one each issue below.  The goal of this public GITHub repository is that is helps others with this type of LaTeX to docx conversion (like wmvanvliet/pandoc-tutorial helped me and was forked in Dec. 2022 as the basis for this publicly forked GITHub repository).
 
 
 ## References
