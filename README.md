@@ -14,7 +14,7 @@ Pandoc will often get you about 90% of the way.  In this GITHub repository, we w
 
 ## Example Scientific Paper
 
-To illustrate the process of converting a complex LaTeX document to Word (DOCX), we will convert a draft paper and supplementary material being submitted to the IUCr ([Acta Crystallographica Section C: STRUCTURAL CHEMISTRY](https://journals.iucr.org/c/)) along with the required CIF file, which is unique to crystallography.  The [IUCr LaTeX package](https://journals.iucr.org/a/services/latexstyle.html) has been used for formatting the primary manuscript.
+To illustrate the process of converting a complex LaTeX document to Word (DOCX), we will convert a draft paper and supplementary material being submitted to the IUCr ([Acta Crystallographica Section C: STRUCTURAL CHEMISTRY](https://journals.iucr.org/c/)) along with the required CIF file, which is unique to crystallography.  The [IUCr LaTeX package](https://journals.iucr.org/services/latexstyle.html) has been used for formatting the primary manuscript.
 
 You can download the LaTeX source for the paper, and the code we will write to convert it to DOCX, in this repository: 
 https://github.com/jyarger/pandoc-journal-latex-to-docx
