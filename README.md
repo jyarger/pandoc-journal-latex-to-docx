@@ -1,9 +1,8 @@
 # Converting from LaTeX to DOCX: Pandoc and working around its limitations
 
-LaTeX is the best tool for writing scientific papers.
-Microsoft Word or Google Docs or some XML word processor is the most widely used and accepted tool for collaborating and submitting scientific papers.
-Hence, ideally, you would write your paper in LaTeX, and send a `.docx` version to your co-authors, collaborators or editors.
-
+[LaTeX](https://www.latex-project.org/) is the best tool for writing scientific papers.
+However, Microsoft Word in `.docx` format (A DOCX file is a ZIP archive of XML files) is the most widely used and accepted tool for sharing, collaborating and format accepted for submitting scientific reports or papers.
+Hence, it would be nice to have an accurate convenient convertor between LaTeX `.tex` files and Word `.docx` files (also the much lesser known `.docx` alternative `.odt` - [ODF](https://en.wikipedia.org/wiki/OpenDocument)).
 
 [Pandoc](https://pandoc.org/) is a tool for converting text between different markup languages (in this case tex and xml).
 Impressive as its capabilities are, there are some markup languages, such as LaTeX, that are essentially programming languages, and Pandoc cannot hope to cover all its commands, extensions, and so on.
